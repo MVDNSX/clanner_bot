@@ -19,7 +19,7 @@ const onClose = () => {
   return (
     <>
       work!!!
-      <button onClick={onClose}>Закрыть</button>
+      <button onClick={onClose}>Закрыть!!</button>
     </>
   )
 }
