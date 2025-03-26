@@ -10,7 +10,13 @@ function App() {
   const tg = window.Telegram.WebApp
   useEffect(()=>{
   tg.ready()
-  fetch('localhost')
+  const data = {...tg.initDataUnsafe}
+  fetch('http://localhost:5000/web-data', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json' 
+    },
+    body: JSON.stringify(data)
+  })
 },[])
 
 const onClose = () => {
