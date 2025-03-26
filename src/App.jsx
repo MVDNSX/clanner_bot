@@ -6,8 +6,9 @@ import './App.css'
 function App() {
 
   const tg = window.Telegram.WebApp
+  const params = new URLSearchParams(tg.initData).get('query_id')
   const data = {
-    query_id: tg.initDataUnsafe?.query_id,
+    query_id: params,
     id: tg.initDataUnsafe?.user?.id,
     username:tg.initDataUnsafe?.user?.username
   }
@@ -32,7 +33,7 @@ const onClose = () => {
       <button onClick={onClose}>Закрыть!!</button>
       <div>{tg.initDataUnsafe?.user?.id}</div>
       <div>{tg.initDataUnsafe?.user?.username}</div>
-      <div>{tg.initDataUnsafe?.query_id}</div>
+      <div>{params}</div>
     </>
   )
 }
