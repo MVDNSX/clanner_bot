@@ -33,7 +33,7 @@ const onClose = () => {
       <button onClick={onClose}>Закрыть!!</button>
       <div>{tg.initDataUnsafe?.user?.id}</div>
       <div>{tg.initDataUnsafe?.user?.username}</div>
-      <div>{params}</div>
+      <div>{tg.initData}</div>
     </>
   )
 }
