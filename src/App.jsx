@@ -14,12 +14,12 @@ function App() {
   useEffect(()=>{
   tg.ready()
   
-  fetch('https://clanner-server.onrender.com/web-data', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json' 
-    },
-    body: JSON.stringify(data)
-  })
+  //fetch('https://clanner-server.onrender.com/web-data', {
+  //  method: 'POST',
+  //  headers: {'Content-Type': 'application/json' 
+  //  },
+  //  body: JSON.stringify(data)
+  //})
 },[])
 
 const onClose = () => {
@@ -30,8 +30,9 @@ const onClose = () => {
     <>
       work!!!
       <button onClick={onClose}>Закрыть!!</button>
-      <span>{tg.initDataUnsafe?.user?.id}</span>
-      <span>{tg.initDataUnsafe?.user?.username}</span>
+      <div>{tg.initDataUnsafe?.user?.id}</div>
+      <div>{tg.initDataUnsafe?.user?.username}</div>
+      <div>{tg.initDataUnsafe?.query_id}</div>
     </>
   )
 }
