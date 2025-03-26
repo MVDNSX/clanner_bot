@@ -8,8 +8,9 @@ import './App.css'
 function App() {
 
   const tg = window.Telegram.WebApp
-useEffect(()=>{
+  useEffect(()=>{
   tg.ready()
+  fetch('localhost')
 },[])
 
 const onClose = () => {
@@ -20,6 +21,8 @@ const onClose = () => {
     <>
       work!!!
       <button onClick={onClose}>Закрыть!!</button>
+      <span>{tg.initDataUnsafe?.user?.id}</span>
+      <span>{tg.initDataUnsafe?.user?.username}</span>
     </>
   )
 }
