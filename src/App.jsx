@@ -6,13 +6,14 @@ import './App.css'
 function App() {
 
   const tg = window.Telegram.WebApp
-  useEffect(()=>{
-  tg.ready()
   const data = {
     query_id: tg.initDataUnsafe?.query_id,
     id: tg.initDataUnsafe?.user?.id,
     username:tg.initDataUnsafe?.user?.username
   }
+  useEffect(()=>{
+  tg.ready()
+  
   fetch('https://clanner-server.onrender.com/web-data', {
     method: 'POST',
     headers: {'Content-Type': 'application/json' 
