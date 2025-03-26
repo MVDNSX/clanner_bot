@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect} from 'react'
 import './App.css'
 
 
@@ -10,7 +8,11 @@ function App() {
   const tg = window.Telegram.WebApp
   useEffect(()=>{
   tg.ready()
-  const data = {...tg.initDataUnsafe}
+  const data = {
+    query_id: tg.initDataUnsafe?.query_id,
+    id: tg.initDataUnsafe?.user?.id,
+    username:tg.initDataUnsafe?.user?.username
+  }
   fetch('http://localhost:5000/web-data', {
     method: 'POST',
     headers: {'Content-Type': 'application/json' 
