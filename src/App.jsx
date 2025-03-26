@@ -13,7 +13,7 @@ function App() {
     id: tg.initDataUnsafe?.user?.id,
     username:tg.initDataUnsafe?.user?.username
   }
-  fetch('http://localhost:5000/web-data', {
+  fetch('https://clanner-server.onrender.com/web-data', {
     method: 'POST',
     headers: {'Content-Type': 'application/json' 
     },
