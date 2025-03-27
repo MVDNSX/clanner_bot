@@ -1,11 +1,11 @@
-import { useEffect} from 'react'
+import { useEffect, useState} from 'react'
 import './App.css'
 
 
 
 function App() {
 
-  const [role, setRole] = useEffect(null)
+  const [role, setRole] = useState('notInClan')
 
   const tg = window.Telegram.WebApp
   const data = {
