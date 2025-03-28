@@ -1,0 +1,25 @@
+.labelForm{
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+.formEntry{
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+
+.formGroup{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 1rem;
+}
+.button{
+  all:unset;
+  height: 40px;
+  padding-inline: 10px;
+  line-height: 1;
+  font-size: 1.6rem;
+  background-color: var(--accent-color);
+  text-align: center;
+  border-radius: 8px;
+}
