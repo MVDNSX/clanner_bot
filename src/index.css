@@ -23,5 +23,7 @@
   body, html {
     height: var(--tg-viewport-height);
     padding-inline: 10px;
+    padding-top: var(--tg-content-safe-area-inset-top);
+    padding-bottom: var(--tg-content-safe-area-inset-bottom);
   }
 
