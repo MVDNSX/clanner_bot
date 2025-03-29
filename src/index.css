@@ -19,11 +19,10 @@
   --accent-color:#b43ef2;
   }
 
-html, body {
-  height: 100%;
-  margin: 0;
-  padding-inline: 10px;
-  padding-top: var(--tg-content-safe-area-inset-top);
-  padding-bottom: var(--tg-content-safe-area-inset-bottom)
-}
+  body, html {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* Убедитесь, что нет прокрутки */
+  }
 

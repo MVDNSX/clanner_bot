@@ -7,11 +7,21 @@ import FormEntry from './components/FormEntry/FormEntry'
 
 function App() {
   useEffect(() => {
-    if (window.Telegram && window.Telegram.WebApp) {
-      window.Telegram.WebApp.init();
-      window.Telegram.WebApp.expand();
-    }
-  },[])
+    const initTelegramApp = () => {
+      if (window.Telegram && window.Telegram.WebApp) {
+        window.Telegram.WebApp.init();
+        window.Telegram.WebApp.expand();
+      }
+    };
+
+    setTimeout(initTelegramApp, 500);
+
+    return () => {
+      if (window.Telegram && window.Telegram.WebApp) {
+        window.Telegram.WebApp.collapse();
+      }
+    };
+  }, []);
 
 return (
   <div className='layout'>

@@ -4,10 +4,6 @@
 }
 
 .layout {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
   height: 100vh;
-  overflow-x: scroll;
-  padding-bottom: env(safe-area-inset-bottom); /* Оставляем место для клавиатуры */
+  width: 100vw;
 }
