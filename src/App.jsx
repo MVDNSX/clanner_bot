@@ -14,8 +14,7 @@ function App() {
 
 return (
   <>
-  123
-    {/*<FormEntry />*/}
+    <FormEntry />
   </>
 )
 }
