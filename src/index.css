@@ -17,12 +17,12 @@
   --bg-color: #080812;
   --text-color: #eaddfa;
   --accent-color:#b43ef2;
-  --tg-theme-bg-color: #ff5733;
   }
 
   body, html {
     height: var(--tg-viewport-height);
     padding-inline: 10px;
     padding-top: var(--tg-content-safe-area-inset-top);
+    background-color: var(--tg-theme-bg-color);
   }
 
