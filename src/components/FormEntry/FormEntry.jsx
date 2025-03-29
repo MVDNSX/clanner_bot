@@ -21,6 +21,7 @@ const FormEntry = () => {
       })
       const result = await response.json();
       if(!response.ok){
+        tg.showAlert(result.message)
         throw new Error(result.message || `Ошибка запроса. Статус: ${response.status}`)
       }
       tg.showAlert('✅ Ваша заявка успешно отправлена!');
