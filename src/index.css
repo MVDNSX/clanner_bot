@@ -22,6 +22,8 @@
 html, body {
   height: 100%;
   margin: 0;
-  padding: 10px;
+  padding-inline: 10px;
+  padding-top: var(--tg-content-safe-area-inset-top);
+  padding-bottom: var(--tg-content-safe-area-inset-bottom)
 }
 
