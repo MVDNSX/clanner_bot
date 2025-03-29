@@ -1,6 +1,6 @@
 .formWrapper{
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: var(--tg-content-safe-area-inset-top);
+    padding-bottom: var(--tg-content-safe-area-inset-bottom);
 }
 .labelForm{
   font-size: 2.5rem;
