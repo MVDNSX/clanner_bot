@@ -1,11 +1,13 @@
 .labelForm{
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin-bottom: 1.5rem;
+  text-align: center;
 }
 .formEntry{
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
+  min-height: 100%;
 }
 
 .formGroup{
@@ -22,4 +24,5 @@
   background-color: var(--accent-color);
   text-align: center;
   border-radius: 8px;
+  margin-top: auto;
 }
