@@ -13,16 +13,16 @@ function App() {
 
     tg.expand();
 
-    const updateHeight = () => {
-      const keyboardHeight = tg.viewportStableHeight - tg.viewportHeight;
-      document.documentElement.style.setProperty("--tg-height", `${tg.viewportHeight}px`);
-      document.documentElement.style.setProperty("--keyboard-height", `${keyboardHeight}px`);
-    };
+    //const updateHeight = () => {
+    //  const keyboardHeight = tg.viewportStableHeight - tg.viewportHeight;
+    //  document.documentElement.style.setProperty("--tg-height", `${tg.viewportHeight}px`);
+    //  document.documentElement.style.setProperty("--keyboard-height", `${keyboardHeight}px`);
+    //};
 
-    tg.onEvent("viewportChanged", updateHeight);
-    updateHeight();
+    //tg.onEvent("viewportChanged", updateHeight);
+    //updateHeight();
 
-    return () => tg.offEvent("viewportChanged", updateHeight);
+    //return () => tg.offEvent("viewportChanged", updateHeight);
   }, []);
 
 return (

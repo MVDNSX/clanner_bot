@@ -20,11 +20,8 @@
   }
 
   body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%; /* Не ограничиваем фиксированной высотой */
+    height: var(--tg-viewport-height);
     padding-top: var(--tg-content-safe-area-inset-top);
     padding-bottom: var(--tg-content-safe-area-inset-bottom);
-    background-color: var(--bg-color);
   }
 
