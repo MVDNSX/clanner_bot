@@ -6,14 +6,15 @@ import FormEntry from './components/FormEntry/FormEntry'
 
 
 function App() {
-  const tg = window.Telegram?.WebApp
+  
   useEffect(()=>{
+    const tg = window.Telegram?.WebApp
     tg.expand()
   }, [])
 
 return (
   <>
-  123
+  123123123
     {/*<FormEntry />*/}
   </>
 )
