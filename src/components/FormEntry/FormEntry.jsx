@@ -34,7 +34,7 @@ const FormEntry = () => {
 
   return (
     <div className={style.formWrapper}>
-    <div className={style.labelForm}>Форма на вступление</div>
+    <div className={style.labelForm}>Заявка в клан</div>
     <form className={style.formEntry} onSubmit={handleSubmit(onSubmit)}>
       <InputForm label='Имя:' {...register('firstName')} placeholder='Ваше имя'/>
       <InputForm label='Никнейм:' {...register('nickname')} placeholder='Ник персонажа'/>

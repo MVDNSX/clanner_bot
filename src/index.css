@@ -20,7 +20,11 @@
   }
 
   body, html {
+    margin: 0;
+    padding-inline: 0;
     padding-top: var(--tg-content-safe-area-inset-top);
     padding-bottom: var(--tg-content-safe-area-inset-bottom);
+    height: var(--tg-height, 100vh);
+    overflow: hidden;
   }
 
