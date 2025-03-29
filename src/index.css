@@ -24,6 +24,6 @@
     height: var(--tg-viewport-height);
     padding-inline: 10px;
     padding-top: var(--tg-content-safe-area-inset-top);
-    background-color: var(--tg-theme-bg-color);
+    background-color: var(--bg-color);
   }
 
