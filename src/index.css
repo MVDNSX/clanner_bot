@@ -21,8 +21,11 @@
 
   body, html {
     margin: 0;
-  padding: 0;
-  height: 100%; /* Не ограничиваем фиксированной высотой */
-  overflow: hidden; 
+    padding: 0;
+    height: 100%; /* Не ограничиваем фиксированной высотой */
+    overflow: hidden; 
+    padding-top: var(--tg-content-safe-area-inset-top);
+    padding-bottom: var(--tg-content-safe-area-inset-bottom);
+    background-color: var(--bg-color);
   }
 
