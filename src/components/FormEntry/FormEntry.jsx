@@ -51,7 +51,7 @@ const FormEntry = () => {
       
       <button className={style.button} type='submit'>Отправить</button>
     </form>
-    </в>
+    </div>
   )
 }
 
