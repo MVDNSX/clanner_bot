@@ -33,7 +33,7 @@ const FormEntry = () => {
 
 
   return (
-    <>
+    <div className={style.formWrapper}>
     <div className={style.labelForm}>Форма на вступление</div>
     <form className={style.formEntry} onSubmit={handleSubmit(onSubmit)}>
       <InputForm label='Имя:' {...register('firstName')} placeholder='Ваше имя'/>
@@ -51,7 +51,7 @@ const FormEntry = () => {
       
       <button className={style.button} type='submit'>Отправить</button>
     </form>
-    </>
+    </в>
   )
 }
 

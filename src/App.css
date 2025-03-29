@@ -9,4 +9,5 @@
   width: 100%;
   height: 100vh;
   overflow-x: scroll;
+  padding-bottom: env(safe-area-inset-bottom); /* Оставляем место для клавиатуры */
 }
