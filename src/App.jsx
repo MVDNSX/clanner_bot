@@ -11,7 +11,10 @@ function App() {
     const tg = window.Telegram?.WebApp;
     if (!tg) return;
 
-    tg.expand();
+    tg.setBackgroundColor("#ff5733"); // Устанавливаем фон приложения (HEX)
+    tg.expand(); // Разворачиваем Mini App
+
+    return () => tg.setBackgroundColor("");
 
     //const updateHeight = () => {
     //  const keyboardHeight = tg.viewportStableHeight - tg.viewportHeight;
