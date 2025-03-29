@@ -4,10 +4,10 @@ import style from './FormEntry.module.scss'
 import {useForm} from 'react-hook-form'
 
 const FormEntry = () => {
-  const serverUrl = 'https://clanner-server.onrender.com'
-  const tg = window.Telegram.WebApp
-  const initData = '123'
-
+  const serverUrl = 'https://clanner-server.onrender.com/api'
+  const tg = window.Telegram?.WebApp;
+  const initData = tg?.initData || '';
+  
   const {register, handleSubmit} = useForm()
 
   const onSubmit =  async (data) => {
@@ -15,13 +15,13 @@ const FormEntry = () => {
       const response = await fetch(`${serverUrl}/declaration`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'X-Telegram-Auth': initData
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify({initData, data})
       })
+      const result = await response.json();
       if(!response.ok){
-        throw new Error(`Ошибка запроса. Статус: ${response.status}`)
+        throw new Error(result.message || `Ошибка запроса. Статус: ${response.status}`)
       }
       tg.showAlert('✅ Ваша заявка успешно отправлена!');
     } catch (error) {
