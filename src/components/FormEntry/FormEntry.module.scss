@@ -1,8 +1,8 @@
 .formWrapper{
-  height: 100vh;
-  overflow-y: scroll;
-  padding-top: var(--tg-safe-area-inset-top);
-  padding-bottom: var(--tg-safe-area-inset-bottom);
+  height: var(--tg-height, 100vh); /* Динамическая высота */
+  overflow-y: auto; /* Включаем прокрутку */
+  padding-bottom: var(--keyboard-height, 0px); /* Учитываем клавиатуру */
+  background: lightgray;
 }
 .labelForm{
   font-size: 2.5rem;
