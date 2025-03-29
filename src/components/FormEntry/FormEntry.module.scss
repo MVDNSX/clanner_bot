@@ -1,8 +1,6 @@
 .formWrapper{
-    height: 100%;
-    overflow: auto;
-    padding-bottom: var(--keyboard-height, 0px); /* Отступ, чтобы клавиатура не перекрывала контент */
-    background: rgb(207, 120, 120);
+  height: 100vh;
+  overflow-y: scroll;
 }
 .labelForm{
   font-size: 2.5rem;
