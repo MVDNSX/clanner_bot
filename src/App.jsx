@@ -7,7 +7,7 @@ import FormEntry from './components/FormEntry/FormEntry'
 function App() {
 return (
   <div className='layout'>
-    {/*<FormEntry />*/}
+    <FormEntry />
   </div>
 )
 }
