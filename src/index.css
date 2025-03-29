@@ -19,8 +19,16 @@
   --accent-color:#b43ef2;
   }
 
-body{
+html, body {
+  height: 100vh;
+  width: 100vw;
   margin: 0;
+  padding: 0;
+  overflow: hidden;
   background-color: var(--bg-color);
-  height: 100dvh;
+  padding-top: env(save-area-inset-top, 1.5rem);
+  padding-bottom: env(save-area-inset-bottom, 1.5rem);
+  padding-left: env(save-area-inset-left, 1.5rem);
+  padding-right: env(save-area-inset-right, 1.5rem);
 }
+
