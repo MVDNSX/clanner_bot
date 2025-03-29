@@ -1,6 +1,8 @@
 .formWrapper{
   height: 100vh;
   overflow-y: scroll;
+  padding-top: var(--tg-safe-area-inset-top);
+  padding-bottom: var(--tg-safe-area-inset-bottom);
 }
 .labelForm{
   font-size: 2.5rem;
