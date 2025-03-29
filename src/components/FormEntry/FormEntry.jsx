@@ -12,7 +12,7 @@ const FormEntry = () => {
 
   const onSubmit =  async (data) => {
     try {
-      const response = await fetch(`${serverUrl}/declaration`, {
+      const response = await fetch(`${serverUrl}/declaration/create`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
