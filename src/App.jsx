@@ -11,7 +11,7 @@ function App() {
     const tg = window.Telegram?.WebApp;
     if (!tg) return;
 
-    tg.setBackgroundColor("#080812"); // Устанавливаем фон приложения (HEX)
+    //tg.setBackgroundColor("#080812"); // Устанавливаем фон приложения (HEX)
     tg.expand(); // Разворачиваем Mini App
 
     return () => tg.setBackgroundColor("");
