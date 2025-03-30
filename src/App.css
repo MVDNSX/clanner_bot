@@ -1,6 +1,4 @@
 #root {
-  color: red;
-  background-color: currentColor !important;
-  
+  background-color: var(--bg-color);  
 }
 
