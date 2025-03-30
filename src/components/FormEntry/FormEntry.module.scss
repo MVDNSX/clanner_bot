@@ -2,6 +2,9 @@
   padding-top: 10px;
   padding-bottom: 35px;
   background-color: var(--bg-color);
+  padding-top:var(--tg-content-safe-area-inset-top);
+  padding-bottom: var(--tg-content-safe-area-inset-bottom);
+  padding-inline: 10px;
 }
 .labelForm{
   font-size: 2.5rem;
