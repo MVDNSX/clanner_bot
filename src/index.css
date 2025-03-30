@@ -20,10 +20,9 @@
   }
 
   body{
+    padding: 0;
     margin: 0;
-    height: var(--tg-viewport-height);
-    padding-inline: 10px;
-    padding-top: var(--tg-content-safe-area-inset-top);
-    background-color: var(--bg-color);
+    height: 100%;
+    width: 100%;
   }
 
