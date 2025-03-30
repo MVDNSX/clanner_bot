@@ -19,7 +19,7 @@
   --accent-color:#b43ef2;
   }
 
-  body, html {
+  body{
     margin: 0;
     height: var(--tg-viewport-height);
     padding-inline: 10px;
