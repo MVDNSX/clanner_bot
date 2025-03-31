@@ -6,8 +6,8 @@ import {useForm} from 'react-hook-form'
 
 const FormEntry = () => {
   const serverUrl = 'https://clanner-server.onrender.com/api'
-  const initData = tg?.initData || '';
   const tg = window.Telegram?.WebApp;
+  const initData = tg?.initData || '';
 
   
   const {register, handleSubmit} = useForm()
