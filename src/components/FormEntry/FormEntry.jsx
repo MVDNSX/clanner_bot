@@ -50,14 +50,14 @@ const FormEntry = () => {
       <InputForm label='Ранее импользуемые никнеймы:' {...register('nicknameHistory')} placeholder='Прошлые ники'/>
       <InputForm label='Прошлые кланы:' {...register('clanHistory')} placeholder='Прошлые кланы'/>
       <InputForm label='Почему именно к нам:' {...register('message')} placeholder='Почему именно к нам'/>
+      {/*<InputForm label='Почему именно к нам:' {...register('message')} placeholder='Почему именно к нам'/>
       <InputForm label='Почему именно к нам:' {...register('message')} placeholder='Почему именно к нам'/>
       <InputForm label='Почему именно к нам:' {...register('message')} placeholder='Почему именно к нам'/>
       <InputForm label='Почему именно к нам:' {...register('message')} placeholder='Почему именно к нам'/>
       <InputForm label='Почему именно к нам:' {...register('message')} placeholder='Почему именно к нам'/>
       <InputForm label='Почему именно к нам:' {...register('message')} placeholder='Почему именно к нам'/>
       <InputForm label='Почему именно к нам:' {...register('message')} placeholder='Почему именно к нам'/>
-      <InputForm label='Почему именно к нам:' {...register('message')} placeholder='Почему именно к нам'/>
-      <InputForm label='Почему именно к нам:' {...register('message')} placeholder='Почему именно к нам'/>
+      <InputForm label='Почему именно к нам:' {...register('message')} placeholder='Почему именно к нам'/>*/}
       
       <button className={style.button} type='submit'>Отправить</button>
     </form>

@@ -4,5 +4,4 @@
   padding-top: calc(var(--tg-content-safe-area-inset-top) + var(--tg-content-safe-area-inset-top));
   padding-inline: 10px;
   border: 1px solid green;
-  overflow: scroll;
 }
