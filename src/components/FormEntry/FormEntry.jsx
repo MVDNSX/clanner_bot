@@ -65,7 +65,7 @@ const FormEntry = () => {
 
 
   return (
-    <motion.div initial={{height: '100vh'}} animate={{height: isKeyboardOpen ? `${window.innerHeight - keyboardHeight}` : '100vh'}} transition={{ duration: 0.3, ease: "ease" }} className={style.formWrapper}>
+    <motion.div initial={{height: '100vh'}} animate={{height: isKeyboardOpen ? `70%` : '100vh'}} transition={{ duration: 0.4, ease: "easeInOut" }} className={style.formWrapper}>
     <div className={style.labelForm}>Заявка в клан</div>
     <form className={style.formEntry} onSubmit={handleSubmit(onSubmit)}>
       <InputForm label='Имя:' {...register('firstName')} placeholder='Ваше имя'/>
