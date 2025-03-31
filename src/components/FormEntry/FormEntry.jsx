@@ -2,6 +2,34 @@
 import InputForm from '../../UI/InputForm/InputForm'
 import style from './FormEntry.module.scss'
 import {useForm} from 'react-hook-form'
+import { motion } from "framer-motion";
+import { useState, useEffect } from 'react'
+
+const useKeyboardInfo = () => {
+  const [keyboardHeight, setKeyboardHeight] = useState(0);
+  const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const viewportHeight = window.visualViewport.height;
+      const windowHeight = window.innerHeight;
+      
+      if (viewportHeight < windowHeight) {
+        setIsKeyboardOpen(true);
+        setKeyboardHeight(windowHeight - viewportHeight);
+      } else {
+        setIsKeyboardOpen(false);
+        setKeyboardHeight(0);
+      }
+    };
+
+    window.visualViewport.addEventListener("resize", handleResize);
+    return () => window.visualViewport.removeEventListener("resize", handleResize);
+  }, []);
+
+  return { isKeyboardOpen, keyboardHeight };
+};
+
 
 const FormEntry = () => {
   const serverUrl = 'https://clanner-server.onrender.com/api'
@@ -31,9 +59,13 @@ const FormEntry = () => {
     }
   };
 
+  const { isKeyboardOpen, keyboardHeight } = useKeyboardInfo();
+
+  
+
 
   return (
-    <div className={style.formWrapper}>
+    <motion.div initial={{height: '100vh'}} animate={{height: isKeyboardOpen ? `${window.innerHeight - keyboardHeight}` : '100vh'}} transition={{ duration: 0.3, ease: "ease" }} className={style.formWrapper}>
     <div className={style.labelForm}>Заявка в клан</div>
     <form className={style.formEntry} onSubmit={handleSubmit(onSubmit)}>
       <InputForm label='Имя:' {...register('firstName')} placeholder='Ваше имя'/>
@@ -59,7 +91,7 @@ const FormEntry = () => {
       
       <button className={style.button} type='submit'>Отправить</button>
     </form>
-    </div>
+    </motion.div>
   )
 }
 
