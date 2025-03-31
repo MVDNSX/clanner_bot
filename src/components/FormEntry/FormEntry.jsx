@@ -2,45 +2,13 @@
 import InputForm from '../../UI/InputForm/InputForm'
 import style from './FormEntry.module.scss'
 import {useForm} from 'react-hook-form'
-import { motion } from "framer-motion";
 import { useState, useEffect } from 'react'
 
-
-const useKeyboardHeight = () => {
-  const [keyboardHeight, setKeyboardHeight] = useState(0);
-  const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
-
-  useEffect(() => {
-    if (!window.Telegram?.WebApp) return; // Проверяем, доступен ли Telegram API
-
-    const initialHeight = window.Telegram.WebApp.viewportStableHeight; // Запоминаем изначальную высоту
-
-    const handleViewportChange = () => {
-      const currentHeight = window.Telegram.WebApp.viewportStableHeight;
-      const heightDiff = initialHeight - currentHeight;
-
-      setKeyboardHeight(heightDiff > 0 ? heightDiff : 0);
-      setIsKeyboardOpen(heightDiff > 0);
-    };
-
-    // Подписываемся на изменение высоты экрана
-    window.Telegram.WebApp.onEvent("viewportChanged", handleViewportChange);
-
-    return () => {
-      // Отписываемся от события при размонтировании
-      window.Telegram.WebApp.offEvent("viewportChanged", handleViewportChange);
-    };
-  }, []);
-
-  return { isKeyboardOpen, keyboardHeight };
-};
 
 const FormEntry = () => {
   const serverUrl = 'https://clanner-server.onrender.com/api'
   const initData = tg?.initData || '';
   const tg = window.Telegram?.WebApp;
-  const { isKeyboardOpen, keyboardHeight } = useKeyboardHeight();
-
 
   
   const {register, handleSubmit} = useForm()
@@ -66,13 +34,26 @@ const FormEntry = () => {
     }
   };
 
+  const [ht, setHt] = useState(0)
+  useEffect(()=>{
+    const h = window.Telegram.WebApp.viewportStableHeight;
+    const sh = () => {
+      setHt(h)
+    }
+    
+    window.Telegram.WebApp.onEvent("viewportChanged", sh);
 
+    return () => {
+      // Отписываемся от события при размонтировании
+      window.Telegram.WebApp.offEvent("viewportChanged", sh);
+    };
+  }, [])
   
 
 
   return (
     <div className={style.formWrapper}>
-    <div className={style.labelForm}>Заявка в клан {`${keyboardHeight}`}</div>
+    <div className={style.labelForm}>Заявка в клан {`${ht}`}</div>
     <form className={style.formEntry} onSubmit={handleSubmit(onSubmit)}>
       <InputForm label='Имя:' {...register('firstName')} placeholder='Ваше имя'/>
       <InputForm label='Никнейм:' {...register('nickname')} placeholder='Ник персонажа'/>
