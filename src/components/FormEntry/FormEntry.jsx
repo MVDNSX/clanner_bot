@@ -2,7 +2,6 @@
 import InputForm from '../../UI/InputForm/InputForm'
 import style from './FormEntry.module.scss'
 import {useForm} from 'react-hook-form'
-import { useState, useEffect } from 'react'
 
 
 const FormEntry = () => {
@@ -34,26 +33,10 @@ const FormEntry = () => {
     }
   };
 
-  const [ht, setHt] = useState(0)
-  useEffect(()=>{
-    const h = window.Telegram.WebApp.viewportStableHeight;
-    const sh = () => {
-      setHt(h)
-    }
-    
-    window.Telegram.WebApp.onEvent("viewportChanged", sh);
-
-    return () => {
-      // Отписываемся от события при размонтировании
-      window.Telegram.WebApp.offEvent("viewportChanged", sh);
-    };
-  }, [])
-  
-
 
   return (
     <div className={style.formWrapper}>
-    <div className={style.labelForm}>Заявка в клан {`${ht}`}</div>
+    <div className={style.labelForm}>Заявка в клан</div>
     <form className={style.formEntry} onSubmit={handleSubmit(onSubmit)}>
       <InputForm label='Имя:' {...register('firstName')} placeholder='Ваше имя'/>
       <InputForm label='Никнейм:' {...register('nickname')} placeholder='Ник персонажа'/>
