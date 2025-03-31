@@ -4,4 +4,5 @@
   padding-bottom: var(--tg-content-safe-area-inset-bottom);
   padding-inline: 10px;
   border: 1px solid green;
-
+  overflow: scroll;
+}
