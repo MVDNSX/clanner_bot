@@ -1,6 +1,6 @@
 .formWrapper{
    background-color: var(--bg-color);
-   padding-top: calc(var(--tg-content-safe-area-inset-top) + var(--tg-content-safe-area-inset-top));
+   padding-top: var(--tg-content-safe-area-inset-top);
    padding-bottom: var(--tg-content-safe-area-inset-bottom);
    padding-inline: 10px;
 }
