@@ -23,6 +23,7 @@
   body{
     width: 100%;
     height: var(--tg-viewport-height);
+    padding-bottom: var(--tg-safe-area-inset-bottom);
     padding: 0;
     margin: 0;
   }
