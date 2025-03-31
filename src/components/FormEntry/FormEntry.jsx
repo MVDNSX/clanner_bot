@@ -5,36 +5,43 @@ import {useForm} from 'react-hook-form'
 import { motion } from "framer-motion";
 import { useState, useEffect } from 'react'
 
-const useKeyboardInfo = () => {
+
+const useKeyboardHeight = () => {
   const [keyboardHeight, setKeyboardHeight] = useState(0);
   const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
 
   useEffect(() => {
-    const handleResize = () => {
-      const viewportHeight = window.visualViewport.height;
-      const windowHeight = window.innerHeight;
-      
-      if (viewportHeight < windowHeight) {
-        setIsKeyboardOpen(true);
-        setKeyboardHeight(windowHeight - viewportHeight);
-      } else {
-        setIsKeyboardOpen(false);
-        setKeyboardHeight(0);
-      }
+    if (!window.Telegram?.WebApp) return; // Проверяем, доступен ли Telegram API
+
+    const initialHeight = window.Telegram.WebApp.viewportStableHeight; // Запоминаем изначальную высоту
+
+    const handleViewportChange = () => {
+      const currentHeight = window.Telegram.WebApp.viewportStableHeight;
+      const heightDiff = initialHeight - currentHeight;
+
+      setKeyboardHeight(heightDiff > 0 ? heightDiff : 0);
+      setIsKeyboardOpen(heightDiff > 0);
     };
 
-    window.visualViewport.addEventListener("resize", handleResize);
-    return () => window.visualViewport.removeEventListener("resize", handleResize);
+    // Подписываемся на изменение высоты экрана
+    window.Telegram.WebApp.onEvent("viewportChanged", handleViewportChange);
+
+    return () => {
+      // Отписываемся от события при размонтировании
+      window.Telegram.WebApp.offEvent("viewportChanged", handleViewportChange);
+    };
   }, []);
 
   return { isKeyboardOpen, keyboardHeight };
 };
 
-
 const FormEntry = () => {
   const serverUrl = 'https://clanner-server.onrender.com/api'
-  const tg = window.Telegram?.WebApp;
   const initData = tg?.initData || '';
+  const tg = window.Telegram?.WebApp;
+  const { isKeyboardOpen, keyboardHeight } = useKeyboardHeight();
+
+
   
   const {register, handleSubmit} = useForm()
 
@@ -59,14 +66,13 @@ const FormEntry = () => {
     }
   };
 
-  const { isKeyboardOpen, keyboardHeight } = useKeyboardInfo();
 
   
 
 
   return (
-    <motion.div initial={{height: '100vh'}} animate={{height: isKeyboardOpen ? `70%` : '100vh'}} transition={{ duration: 0.4, ease: "easeInOut" }} className={style.formWrapper}>
-    <div className={style.labelForm}>Заявка в клан</div>
+    <div className={style.formWrapper}>
+    <div className={style.labelForm}>Заявка в клан {`${keyboardHeight}`}</div>
     <form className={style.formEntry} onSubmit={handleSubmit(onSubmit)}>
       <InputForm label='Имя:' {...register('firstName')} placeholder='Ваше имя'/>
       <InputForm label='Никнейм:' {...register('nickname')} placeholder='Ник персонажа'/>
@@ -91,7 +97,7 @@ const FormEntry = () => {
       
       <button className={style.button} type='submit'>Отправить</button>
     </form>
-    </motion.div>
+    </div>
   )
 }
 
