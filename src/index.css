@@ -25,5 +25,6 @@
     height: var(--tg-viewport-stable-height);
     padding: 0;
     margin: 0;
+    border: 1px solid red;
   }
 
