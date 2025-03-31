@@ -21,11 +21,11 @@
   }
 
   body{
-    width: 100%;
-    height: var(--tg-viewport-stable-height);
-    padding: 0;
-    margin: 0;
-    border: 1px solid red;
-    overflow: hidden;
+    position: fixed;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
   }
 
