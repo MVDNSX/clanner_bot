@@ -3,6 +3,5 @@
   padding-top: calc(var(--tg-content-safe-area-inset-top) + var(--tg-content-safe-area-inset-top));
   padding-bottom: var(--tg-content-safe-area-inset-bottom);
   padding-inline: 10px;
-  border: 1px solid red;
-}
+  border: 1px solid green;
 
